@@ -9,6 +9,7 @@ class DataPrep:
         self.main_ui = main_ui
 
     def setup_ui(self, tab_frame):
+        self.standard_font = ("Segoe UI")
         # 最初のテキストボックス用のフレームを作成し、高さを大きく設定
         frame1 = ctk.CTkFrame(tab_frame)
         frame1.pack(padx=20, pady=10, fill="both")

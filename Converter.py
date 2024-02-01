@@ -46,6 +46,8 @@ class Converter:
                     self.convert_file(file_path, output_format)
 
     def setup_ui(self, tab_frame):
+        self.standard_font = ("Segoe UI")
+
         self.format_var = ctk.StringVar(value="wav")
         self.setup_converter_tab(tab_frame)
 

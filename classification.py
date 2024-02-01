@@ -16,6 +16,8 @@ class Classifier:
         self.output_dir_label = None
 
     def setup_ui(self, tab_frame):
+        self.standard_font = ("Segoe UI")
+    
         frame1 = ctk.CTkFrame(tab_frame)
         frame1.pack(padx=20, pady=10, fill="both")
         self.info_text_box1 = ctk.CTkTextbox(frame1, height=150, state='disabled')

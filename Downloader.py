@@ -39,6 +39,7 @@ class Downloader:
                 messagebox.showwarning("警告", "ダウンロード先が指定されていません")
 
     def setup_ui(self, tab_frame):
+        self.standard_font = ("Segoe UI")
         self.search_format_var = ctk.StringVar(value="wav")  
         self.top_count_var = ctk.StringVar(value="1")
 

@@ -8,6 +8,7 @@ class MainUI:
     def __init__(self, root):
         self.root = root
         self.setup_ui()
+        self.standard_font = ("Segoe UI")
         
         downloader_tab = self.tabview.add("ダウンローダー")
         dataprep_tab = self.tabview.add("匿名化&識別子振り分け")
