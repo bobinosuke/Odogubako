@@ -3,8 +3,6 @@ import ffmpeg
 import customtkinter as ctk
 import os
 
-FONT_TYPE = "meiryo"
-
 class Converter:
     def __init__(self, main_ui):
         self.main_ui = main_ui
@@ -60,7 +58,7 @@ class Converter:
         self.input_format_combobox = ctk.CTkComboBox(tab_frame, values=["wav", "mp3", "ogg", "flac", "mp4", "avi"])
         self.input_format_combobox.pack(pady=(0, 10))
 
-        url_label = ctk.CTkLabel(tab_frame, text="変換後のフォーマットを入力または選択:", font=self.fonts)
+        url_label = ctk.CTkLabel(tab_frame, text="変換後のフォーマットを入力または選択:")
         url_label.pack(pady=(10, 0))
         
         self.format_combobox = ctk.CTkComboBox(tab_frame, values=["wav", "mp3", "ogg", "flac", "mp4", "avi"])
@@ -69,10 +67,10 @@ class Converter:
         url_label = ctk.CTkLabel(tab_frame, text="変換したいファイルを選択:", font=self.fonts)
         url_label.pack(pady=(10, 0))
 
-        convert_button = ctk.CTkButton(tab_frame, text="ファイルを選択", command=self.convert, font=self.fonts)
+        convert_button = ctk.CTkButton(tab_frame, text="ファイルを選択", command=self.convert)
         convert_button.pack(pady=(0, 10))
 
-        url_label = ctk.CTkLabel(tab_frame, text="変換したいフォルダを選択:", font=self.fonts)
+        url_label = ctk.CTkLabel(tab_frame, text="変換したいフォルダを選択:")
         url_label.pack(pady=(10, 0))
         # フォルダ内のファイルを変換するためのボタンを追加
         convert_folder_button = ctk.CTkButton(tab_frame, text="フォルダを選択", command=self.convert_folder)
