@@ -2,31 +2,31 @@ import customtkinter as ctk
 import Downloader
 import Converter
 import DataPrep
-
+import classification  
 
 class MainUI:
     def __init__(self, root):
         self.root = root
         self.setup_ui()
         
-        # タブを作成し、それぞれのクラスに渡します。
         downloader_tab = self.tabview.add("ダウンローダー")
         dataprep_tab = self.tabview.add("匿名化&識別子振り分け")
         converter_tab = self.tabview.add("コンバーター")
+        classification_tab = self.tabview.add("BGMの有無を検出")  # 新しいタブを追加
         
         self.downloader = Downloader.Downloader(self)
         self.converter = Converter.Converter(self)
         self.dataprep = DataPrep.DataPrep(self)
+        self.classifier = classification.Classifier(self)  # Classifierクラスのインスタンスを作成
         
-        # タブをセットアップするメソッドを呼び出します。
         self.downloader.setup_ui(downloader_tab)
         self.converter.setup_ui(converter_tab)
         self.dataprep.setup_ui(dataprep_tab)
+        self.classifier.setup_ui(classification_tab)  # 新しいタブをセットアップ
 
     def setup_ui(self):
         self.tabview = ctk.CTkTabview(master=self.root)
         self.tabview.pack(padx=20, pady=20, fill="both", expand=True)
-
 
 # アプリケーションの実行
 root = ctk.CTk()
