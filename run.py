@@ -2,9 +2,7 @@ import customtkinter as ctk
 import Downloader
 import Converter
 import DataPrep
-import classification
-
-FONT_TYPE = "meiryo"
+import classification  
 
 class MainUI:
     def __init__(self, root):
@@ -14,17 +12,17 @@ class MainUI:
         downloader_tab = self.tabview.add("ダウンローダー")
         dataprep_tab = self.tabview.add("匿名化&識別子振り分け")
         converter_tab = self.tabview.add("コンバーター")
-        classification_tab = self.tabview.add("BGMの有無を検出")  
+        classification_tab = self.tabview.add("BGMの有無を検出")  # 新しいタブを追加
         
         self.downloader = Downloader.Downloader(self)
         self.converter = Converter.Converter(self)
         self.dataprep = DataPrep.DataPrep(self)
-        self.classifier = classification.Classifier(self)  
+        self.classifier = classification.Classifier(self)  # Classifierクラスのインスタンスを作成
         
         self.downloader.setup_ui(downloader_tab)
         self.converter.setup_ui(converter_tab)
         self.dataprep.setup_ui(dataprep_tab)
-        self.classifier.setup_ui(classification_tab)  
+        self.classifier.setup_ui(classification_tab)  # 新しいタブをセットアップ
 
     def setup_ui(self):
         self.tabview = ctk.CTkTabview(master=self.root)
@@ -32,7 +30,7 @@ class MainUI:
 
 # アプリケーションの実行
 root = ctk.CTk()
-root.title("Odogubako")  
+root.title("Odogubako")  # タイトルを"Odogubako"に変更
 root.minsize(500, 500)
 
 ui = MainUI(root)

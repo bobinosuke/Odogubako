@@ -6,8 +6,6 @@ from keras.preprocessing.sequence import pad_sequences
 import customtkinter as ctk
 from tkinter import filedialog
 
-FONT_TYPE = "meiryo"
-
 class Classifier:
     def __init__(self, main_ui):
         self.main_ui = main_ui
@@ -18,11 +16,10 @@ class Classifier:
         self.output_dir_label = None
 
     def setup_ui(self, tab_frame):
-        frame1 = ctk.CTkFrame(tab_frame)
-        frame1.pack(padx=20, pady=10, fill="both")
-        self.info_text_box1 = ctk.CTkTextbox(frame1, height=150, state='disabled')
-        self.info_text_box1.pack(fill="both", expand=True)
-        self.insert_text(self.info_text_box1, "発話時のBGMの有無を分類し、speechとspeech_withBGMの2つのフォルダに仕分けるプログラムです\n\n"
+        self.info_text_box = ctk.CTkTextbox(tab_frame, height=4, state='disabled')
+        self.info_text_box.pack(padx=20, pady=20, fill="both", expand=True)
+
+        self.insert_text("発話時のBGMの有無を分類し、speechとspeech_withBGMの2つのフォルダに仕分けるプログラムです\n\n"
                         "入力ディレクトリにBGMの有無を仕分けたいwavファイルを入れてください(事前にVADで発話部分だけ2-12秒程度に切り出してください)\n\n"
                         "出力ディレクトリにはspeechとspeech_withBGMフォルダが自動生成されそのなかに仕分けられたwavが入ります")
 
@@ -44,10 +41,10 @@ class Classifier:
         classify_button = ctk.CTkButton(tab_frame, text="ファイルを分類", command=self.classify_files)
         classify_button.pack(pady=(0, 20))
 
-    def insert_text(self, text_box, text):
-        text_box.configure(state='normal')
-        text_box.insert('end', text)
-        text_box.configure(state='disabled')
+    def insert_text(self, text):
+        self.info_text_box.configure(state='normal')
+        self.info_text_box.insert('end', text)
+        self.info_text_box.configure(state='disabled')
 
     def select_input_dir(self):
         self.input_dir = filedialog.askdirectory(title="入力ディレクトリを選択")
