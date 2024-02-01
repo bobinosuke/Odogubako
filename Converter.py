@@ -3,6 +3,8 @@ import ffmpeg
 import customtkinter as ctk
 import os
 
+FONT_TYPE = "meiryo"
+
 class Converter:
     def __init__(self, main_ui):
         self.main_ui = main_ui
@@ -46,8 +48,6 @@ class Converter:
                     self.convert_file(file_path, output_format)
 
     def setup_ui(self, tab_frame):
-        self.standard_font = ("Segoe UI")
-
         self.format_var = ctk.StringVar(value="wav")
         self.setup_converter_tab(tab_frame)
 
