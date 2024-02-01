@@ -2,6 +2,8 @@ import subprocess
 from tkinter import messagebox, filedialog
 import customtkinter as ctk
 
+FONT_TYPE = "meiryo"
+
 class Downloader:
     def __init__(self, main_ui):
         self.main_ui = main_ui
@@ -39,7 +41,6 @@ class Downloader:
                 messagebox.showwarning("警告", "ダウンロード先が指定されていません")
 
     def setup_ui(self, tab_frame):
-        self.standard_font = ("Segoe UI")
         self.search_format_var = ctk.StringVar(value="wav")  
         self.top_count_var = ctk.StringVar(value="1")
 
