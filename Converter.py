@@ -64,7 +64,7 @@ class Converter:
         self.format_combobox = ctk.CTkComboBox(tab_frame, values=["wav", "mp3", "ogg", "flac", "mp4", "avi"])
         self.format_combobox.pack(pady=(0, 10))
 
-        url_label = ctk.CTkLabel(tab_frame, text="変換したいファイルを選択:", font=self.fonts)
+        url_label = ctk.CTkLabel(tab_frame, text="変換したいファイルを選択:")
         url_label.pack(pady=(10, 0))
 
         convert_button = ctk.CTkButton(tab_frame, text="ファイルを選択", command=self.convert)
