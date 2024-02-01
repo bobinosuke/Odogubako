@@ -1,3 +1,7 @@
 yt-dlp
 ffmpeg-python
 customtkinter
+numpy
+librosa
+tensorflow
+scikit-learn
