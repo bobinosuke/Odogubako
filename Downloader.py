@@ -23,7 +23,7 @@ class Downloader:
     def download_top_search_result(self):
         search_keyword = self.search_entry.get()
         selected_format = self.search_format_var.get()
-        top_count = self.get_slider_value()  # スライダーの値を取得
+        top_count = self.get_slider_value()  
         directory = filedialog.askdirectory(title='ダウンロード先を指定')
         if search_keyword and directory and top_count > 0:
             if selected_format == "default":
@@ -39,7 +39,7 @@ class Downloader:
                 messagebox.showwarning("警告", "ダウンロード先が指定されていません")
 
     def setup_ui(self, tab_frame):
-        self.search_format_var = ctk.StringVar(value="wav")  # Changed the initial value to "wav"
+        self.search_format_var = ctk.StringVar(value="wav")  
         self.top_count_var = ctk.StringVar(value="1")
 
         self.setup_downloader_tab(tab_frame)
@@ -73,7 +73,7 @@ class Downloader:
             top_count_label = ctk.CTkLabel(tab_frame, text="キーワード検索でダウンロードするファイルの数:")
             top_count_label.pack(pady=(10, 0))
             self.top_count_slider = ctk.CTkSlider(tab_frame, from_=1, to=10, number_of_steps=9)
-            self.top_count_slider.set(1)  # スライダーの初期値を1に設定
+            self.top_count_slider.set(1)  
             self.top_count_slider.pack(pady=(10, 10))
             self.top_count_value_label = ctk.CTkLabel(tab_frame, text="選択値: 1")
             self.top_count_value_label.pack(pady=(0, 10))

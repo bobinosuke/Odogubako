@@ -28,7 +28,7 @@ class Converter:
             messagebox.showerror("エラー", f"変換中にエラーが発生しました: {e.stderr.decode()}")
 
     def convert(self):
-        file_path = self.select_file()  # selfを使用してメソッドを呼び出す
+        file_path = self.select_file()  
         if file_path:
             output_format = self.format_combobox.get()
             self.convert_file(file_path, output_format)
@@ -50,7 +50,6 @@ class Converter:
         self.setup_converter_tab(tab_frame)
 
     def setup_converter_tab(self, tab_frame):
-        # 新しいCTkComboBoxを追加するコード
         input_format_label = ctk.CTkLabel(tab_frame, text="変換前のフォーマットを入力または選択:")
         input_format_label.pack(pady=(10, 0))
         
@@ -72,6 +71,5 @@ class Converter:
         url_label = ctk.CTkLabel(tab_frame, text="変換したいフォルダを選択:")
         url_label.pack(pady=(10, 0))
 
-        # フォルダ内のファイルを変換するためのボタンを追加
         convert_folder_button = ctk.CTkButton(tab_frame, text="フォルダを選択", command=self.convert_folder)
         convert_folder_button.pack(pady=(0, 20))
