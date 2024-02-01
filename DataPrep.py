@@ -35,6 +35,20 @@ class DataPrep:
         self.info_text_box.configure(state='disabled')
 
     def rename_subfolders_and_files(self, folder_path):
+        non_wav_files_found = False
+        for root, dirs, files in os.walk(folder_path):
+            for file in files:
+                if not file.endswith('.wav'):
+                    non_wav_files_found = True
+                    break
+
+        if non_wav_files_found:
+            print(f"警告: あなたが変換しようとしているフォルダは{folder_path}です。本当に変換しますか？ Y/N")
+            user_input = input()
+            if user_input.lower() != 'y':
+                print("処理を中止しました。")
+                return
+
         for root, dirs, files in os.walk(folder_path):
             for subdir in dirs:
                 new_name = uuid.uuid4().hex[:8]

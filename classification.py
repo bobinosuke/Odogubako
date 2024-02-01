@@ -98,13 +98,16 @@ class Classifier:
                 prediction = self.model.predict([X_mel, X_zcr])
                 predicted_label = np.argmax(prediction, axis=1)[0]
                 print(f"{filename} は {predicted_label} に分類されました")
-            # 予測されたラベルに基づいてファイルを移動
-            if predicted_label == 0:
-                destination = speech_dir
-            else:
-                destination = speech_withBGM_dir
-            os.rename(file_path, os.path.join(destination, filename))
 
-            print(f"{filename} を {destination} に移動しました。")
+                # 予測されたラベルに基づいてファイルを移動
+                if predicted_label == 0:
+                    destination = speech_dir
+                else:
+                    destination = speech_withBGM_dir
+                os.rename(file_path, os.path.join(destination, filename))
+
+                print(f"{filename} を {destination} に移動しました。")
+            else:
+                print(f"{filename} は.wavファイルではないためスキップされました。")
 
         print("ファイルの仕分けが完了しました。")

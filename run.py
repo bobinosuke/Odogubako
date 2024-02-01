@@ -30,6 +30,7 @@ class MainUI:
 
 # アプリケーションの実行
 root = ctk.CTk()
+root.title("Odogubako")  # タイトルを"Odogubako"に変更
 root.minsize(500, 500)
 
 ui = MainUI(root)
