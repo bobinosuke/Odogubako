@@ -52,26 +52,28 @@ class Converter:
         self.setup_converter_tab(tab_frame)
 
     def setup_converter_tab(self, tab_frame):
-        input_format_label = ctk.CTkLabel(tab_frame, text="変換前のフォーマットを入力または選択:")
+        self.fonts = (FONT_TYPE)
+        
+        input_format_label = ctk.CTkLabel(tab_frame, text="変換前のフォーマットを入力または選択:", font=self.fonts)
         input_format_label.pack(pady=(10, 0))
         
         self.input_format_combobox = ctk.CTkComboBox(tab_frame, values=["wav", "mp3", "ogg", "flac", "mp4", "avi"])
         self.input_format_combobox.pack(pady=(0, 10))
 
-        url_label = ctk.CTkLabel(tab_frame, text="変換後のフォーマットを入力または選択:")
+        url_label = ctk.CTkLabel(tab_frame, text="変換後のフォーマットを入力または選択:", font=self.fonts)
         url_label.pack(pady=(10, 0))
         
         self.format_combobox = ctk.CTkComboBox(tab_frame, values=["wav", "mp3", "ogg", "flac", "mp4", "avi"])
         self.format_combobox.pack(pady=(0, 10))
 
-        url_label = ctk.CTkLabel(tab_frame, text="変換したいファイルを選択:")
+        url_label = ctk.CTkLabel(tab_frame, text="変換したいファイルを選択:", font=self.fonts)
         url_label.pack(pady=(10, 0))
 
-        convert_button = ctk.CTkButton(tab_frame, text="ファイルを選択", command=self.convert)
+        convert_button = ctk.CTkButton(tab_frame, text="ファイルを選択", command=self.convert, font=self.fonts)
         convert_button.pack(pady=(0, 10))
 
-        url_label = ctk.CTkLabel(tab_frame, text="変換したいフォルダを選択:")
+        url_label = ctk.CTkLabel(tab_frame, text="変換したいフォルダを選択:", font=self.fonts)
         url_label.pack(pady=(10, 0))
 
-        convert_folder_button = ctk.CTkButton(tab_frame, text="フォルダを選択", command=self.convert_folder)
+        convert_folder_button = ctk.CTkButton(tab_frame, text="フォルダを選択", command=self.convert_folder, font=self.fonts)
         convert_folder_button.pack(pady=(0, 20))
